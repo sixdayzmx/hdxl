@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="layui/css/layui.css" th:href="@{/webjars/layui/2.5.4/css/layui.css}" />
+</head>
+<body>
+
+<h2 th:text="${hello}" th:attr="style='color:red;font-size:55px'">你好</h2>
+<h2 th:text="${#request.getAttribute('dept')}">Java研究院</h2>
+
+<p th:text="${welcome}"> 这是自我介绍</p>
+<p th:utext="${welcome}"> 这是自我介绍</p>
+
+<p th:utext="#{home.welcome}"> 这是自我介绍</p>
+<p th:utext="#{xxx.yyy(${dept.dname},${dept.loc})}"> 这是自我介绍</p>
+
+<p th:text="${#locale.country}"></p>
+<p th:text="${#locale.displayName}"></p>
+<p th:text="${#locale.displayLanguage}"></p>
+
+<p th:text="${#dates.format(lasttime,'yyyy-MM-dd HH:mm:ss')}"></p>
+
+
+<p th:text="${#strings.substring(dept.dname,0,2)}"></p>
+
+
+<hr/>
+<p th:text="${dept.dname}"></p>
+<p th:text="*{dept.dname}"></p>
+
+<div th:object="${dept}">
+    <!--已经指定了对象-->
+    <p th:text="*{dname}"></p>
+    <!--获取不到内容-->
+    <p th:text="${dname}"></p>
+</div>
+
+
+<table class="layui-table">
+    <tr>
+        <th>序号</th>
+        <th>编号</th>
+        <th>名称</th>
+        <th>地址</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1001</td>
+        <td>Java研发部</td>
+        <td>广州</td>
+
+
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>1003</td>
+        <td>软件测试部</td>
+        <td>东莞</td>
+        <!--<a th:href="" href="#">查看数据</a>-->
+    </tr>
+</table>
+
+<a th:href="@{/dept/thym/param(name=${dept.dname},loc='华美居608')}" href="#">查看数据</a>
+
+
+<p th:text="100*200"> </p>
+
+
+<div th:if="${vip} == true">
+    truexxxxxxxxxxxxxxxxxx
+</div>
+
+<img src="https://www.baidu.com/img/bd_logo1.png?where=super" th:attr="src='https://www.sogou.com/web/index/images/logo_440x140.v.4.png',width='20px', height='15px'" />
+
+<div th:replace="footer :: copy_xx"></div>
+
+</body>
+</html>

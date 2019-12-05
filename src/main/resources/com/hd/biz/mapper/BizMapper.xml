@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hd.biz.mapper.BizMapper">
+
+    <select id="findAddr" resultType="java.lang.String" parameterType="java.lang.String">
+        select CALLBACKADDR from AUTH_SIGN_SERVER_CONFIG where BIZCODE=#{code} and BIZTYPE=#{type} and ADDR_TYPE=#{addrType}
+    </select>
+
+    <select id="findAllBiz" resultType="com.hd.biz.pojo.Biz" >
+        select * from AUTH_SIGN_SERVER_CONFIG
+    </select>
+
+    <select id="findMaxId" resultType="java.lang.Integer">
+        select max(id) from AUTH_SIGN_SERVER_CONFIG
+    </select>
+
+    <select id="addBiz" resultType="java.lang.Integer" parameterType="com.hd.biz.pojo.Biz">
+        insert into AUTH_SIGN_SERVER_CONFIG (id,BIZCODE,BIZTYPE,CALLBACKADDR) values(#{id,jdbcType=NUMERIC},#{bizCode,jdbcType=VARCHAR},#{bizType,jdbcType=VARCHAR},#{callBackAddr,jdbcType=VARCHAR})
+    </select>
+
+    <select id="deleteById" resultType="java.lang.Integer">
+        delete from AUTH_SIGN_SERVER_CONFIG where id=#{id}
+    </select>
+</mapper>

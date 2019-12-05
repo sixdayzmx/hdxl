@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="layui/css/layui.css" th:href="@{/webjars/layui/2.5.4/css/layui.css}" />
+</head>
+<body>
+
+
+<table class="layui-table">
+    <tr>
+        <th>序号</th>
+        <th>编号</th>
+        <th>名称</th>
+        <th>地址</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="dept,vs: ${deptList}" th:if="${vs.index}==0">
+        <td th:text="${vs.index+1}">1</td>
+        <td th:text="${dept.deptno}">1001</td>
+        <td th:text="${dept.dname}">Java研发部</td>
+        <td th:text="${dept.loc}">广州</td>
+        <td><a href="#">查看数据</a></td>
+    </tr>
+    <!--<tr>-->
+        <!--<td>2</td>-->
+        <!--<td>1003</td>-->
+        <!--<td>软件测试部</td>-->
+        <!--<td>东莞</td>-->
+        <!--<td><a th:href="" href="#">查看数据</a></td>-->
+    <!--</tr>-->
+</table>
+
+
+<p th:if="${#lists.isEmpty(xx)}">
+    xxxxxxx
+</p>
+<p th:unless="${#lists.isEmpty(xx)}">
+    yyyyyyy
+</p>
+
+
+
+<div th:replace="footer :: copy_xx"></div>
+
+</body>
+</html>

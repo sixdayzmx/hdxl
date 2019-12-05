@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/dist/css/bootstrap.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.css}"
+          rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" th:href="@{/assets/css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/dashboard.css" th:href="@{/assets/css/dashboard.css}" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+<!--导航栏-->
+<div th:replace="~{common/top::top_nav}"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!--sidebar-->
+        <div th:replace="~{common/left::sidebar}"></div>
+
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">添加员工信息</h1>
+
+            <div class="row">
+                <form class="form-horizontal"
+                      action="/api/login/call" method="post" th:action="@{/api/login/call}" >
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">id</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3"
+                                   placeholder="例如:1" name="id">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">系统编号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword4"
+                                   placeholder="例如:001" name="bizCode">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">系统类别</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword5"
+                                   placeholder="例如:login" name="bizType">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">接口地址</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword6"
+                                   placeholder="例如:http://192.168.1.57:8000/api/qrcode/q" name="callBackAddr">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">添加</button>
+                            <button type="button" class="btn btn-info" onclick="history.back()" >返回</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="dist/js/jquery.min.js" th:src="@{/webjars/jquery/1.11.1/jquery.js}"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="dist/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="assets/js/vendor/holder.min.js" th:src="@{/assets/js/vendor/holder.min.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="assets/js/ie10-viewport-bug-workaround.js" th:src="@{/assets/js/ie10-viewport-bug-workaround.js}"></script>
+
+</body>
+</html>
