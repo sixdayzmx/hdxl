@@ -28,7 +28,7 @@ public class TestMain {
 
     @Test
     public void HashCode(){
-        String Key="zmxisagoodmanhkhkkkdflg";
+        String Key="zmxisagoodmanhkhkkkdf";
         int index=0;
         char[] chars = Key.toCharArray();
         index=(int)chars[0];
@@ -38,6 +38,9 @@ public class TestMain {
         index>>=27;
         index&=16-1;
         System.out.println(index);
-
     }
+
+
+
+
 }

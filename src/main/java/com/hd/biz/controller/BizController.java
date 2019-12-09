@@ -2,14 +2,11 @@ package com.hd.biz.controller;
 
 import cn.hutool.core.codec.Base64;
 import cn.kingeid.guomi.SM2Utils;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.hd.biz.pojo.*;
 import com.hd.biz.service.LoginCallBackService;
 import com.hd.biz.util.HttpRequestTool;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -17,19 +14,13 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/api")
@@ -133,16 +124,18 @@ public class BizController {
         return "index";
     }
 
-    @RequestMapping("/addCall")
+    @RequestMapping("/login/addCall")
     public String addCall(Model model){
         int maxId = loginCallBackService.findMaxId();
         model.addAttribute("id",maxId++);
-        return "addEmp";
+        return "addUrl";
     }
 
-    @PostMapping("/call")
+    @PostMapping("/login/call")
     public String call(Biz biz){
         System.out.println(biz);
+        int maxId = loginCallBackService.findMaxId();
+        biz.setId(++maxId);
         loginCallBackService.addBiz(biz);
         return "redirect:/user/main";
     }

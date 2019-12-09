@@ -14,4 +14,9 @@ public class BizCrudServiceImpl implements BizCrudService {
     public Integer deleteById(int id) {
         return mapper.deleteById(id);
     }
+
+    @Override
+    public Integer maxId() {
+        return mapper.findMaxId();
+    }
 }

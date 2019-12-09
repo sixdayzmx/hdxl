@@ -36,7 +36,7 @@
         <div th:replace="~{common/left::sidebar}"></div>
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">接口地址管理</h1>
 
 
           <div class="row">
@@ -94,10 +94,8 @@
                 <th>id</th>
                 <th>系统编号</th>
                 <th>系统类别</th>
-                <th>地址</th>
-                <th>入职日期</th>
-                <th>薪水</th>
-                <th>部门</th>
+                <th>接口地址</th>
+                <th>接口名称</th>
                 <th>操作</th>
               </tr>
               </thead>
@@ -109,11 +107,8 @@
                 <td th:text="${biz.id}">1,001</td>
                 <td th:text="${biz.bizCode}">Lorem</td>
                 <td th:text="${biz.bizType}">ipsum</td>
-                <td th:text="${biz.getcallBackAddr()}">plsm</td>
-                设置日期格式
-                <td th:text="2019">dolor</td>
-                <td th:text="2">sit</td>
-                <td th:text="2">sit</td>
+                <td th:text="${biz.getCallBackAddr()}">plsm</td>
+                <td th:text="${biz.getBizAddrName()}">plsm</td>
                 <td><a class="btn btn-sm btn-primary" href="#" th:href="@{'/emp/'+1}"><span
                         class="glyphicon glyphicon-edit"></span>编辑</a>
                   <!--重新定义一个属性:myhref，设置新的url路径-->

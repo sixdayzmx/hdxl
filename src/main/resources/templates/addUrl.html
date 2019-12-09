@@ -46,16 +46,9 @@
                 <form class="form-horizontal"
                       action="/api/login/call" method="post" th:action="@{/api/login/call}" >
 
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">id</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword3"
-                                   placeholder="例如:1" name="id">
-                        </div>
-                    </div>
 
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">系统编号</label>
+                        <label for="inputPassword4" class="col-sm-2 control-label">系统编号</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputPassword4"
                                    placeholder="例如:001" name="bizCode">
@@ -64,7 +57,7 @@
 
 
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">系统类别</label>
+                        <label for="inputPassword5" class="col-sm-2 control-label">系统类别</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputPassword5"
                                    placeholder="例如:login" name="bizType">
@@ -73,10 +66,17 @@
 
 
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">接口地址</label>
+                        <label for="inputPassword6" class="col-sm-2 control-label">接口地址</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputPassword6"
                                    placeholder="例如:http://192.168.1.57:8000/api/qrcode/q" name="callBackAddr">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword7" class="col-sm-2 control-label">接口名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword7"
+                                   placeholder="例如:登录接口" name="AddrName">
                         </div>
                     </div>
 
