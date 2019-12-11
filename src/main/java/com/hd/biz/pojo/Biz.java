@@ -9,5 +9,7 @@ public class Biz {
     private String callBackAddr;
     private String bizType;
     private String bizAddrName;
-
+/**
+ * jl
+ */
 }
